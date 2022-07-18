@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:id="@+id/iv_signup_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        android:src="@drawable/btn_arrow_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_signup_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_signup_back" />
+
+    <TextView
+        android:id="@+id/tv_signup_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:text="휴대전화번호를 등록하셔야 스탬프 적립이 가능합니다.\n개인 정보 수탁사: NHN\n업무의 내용: 인증번호 문자 발송 대행"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_signup_back" />
+
+    <TextView
+        android:id="@+id/tv_signup_id_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="아이디 / 비밀번호 등록"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup_message" />
+
+    <EditText
+        android:id="@+id/edt_signup_id"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="아이디를 입력하세요"
+        android:inputType="text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@id/btn_signup_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup_id_password" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_signup_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_custom"
+        android:text="확인"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edt_signup_id"
+        app:layout_constraintTop_toTopOf="@id/edt_signup_id" />
+
+    <EditText
+        android:id="@+id/edt_signup_password"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="비밀번호를 입력하세요"
+        android:inputType="text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@id/btn_signup_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_signup_id" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_signup_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_custom"
+        android:text="확인"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edt_signup_password"
+        app:layout_constraintTop_toTopOf="@id/edt_signup_password" />
+
+    <CheckBox
+        android:id="@+id/cb_signup_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:buttonTint="#E6E6E6"
+        android:text="전체 동의"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/edt_signup_password" />
+
+    <CheckBox
+        android:id="@+id/cb_signup_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="#E6E6E6"
+        android:text="서비스 이용약관(필수)"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_all" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="전문보기"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_service" />
+
+    <CheckBox
+        android:id="@+id/cb_signup_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="#E6E6E6"
+        android:text="개인정보 처리방침"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_service" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="전문보기"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_info" />
+
+    <CheckBox
+        android:id="@+id/cb_signup_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="#E6E6E6"
+        android:text="제3자 개인정보 활용 동의(필수)"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_info" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="전문보기"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_3" />
+
+    <CheckBox
+        android:id="@+id/cb_signup_marketing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="#E6E6E6"
+        android:text="마케팅 활용 동의(선택)"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="전문보기"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_signup_marketing" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_signup_custom"
+        android:text="회원가입"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/iv_signup_back" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
