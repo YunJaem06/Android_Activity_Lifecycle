@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:enabled="true"
+        android:title="메인"/>
+    <item
+        android:id="@+id/navigation_pay"
+        android:icon="@drawable/letter_w"
+        android:enabled="true"
+        android:title="메가페이"/>
+    <item
+        android:id="@+id/navigation_order"
+        android:icon="@drawable/coffee_cup"
+        android:enabled="true"
+        android:title="멕가오더"/>
+    <item
+        android:id="@+id/navigation_present"
+        android:icon="@drawable/megagift"
+        android:enabled="true"
+        android:title="선물하기"/>
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/centered_justification"
+        android:enabled="true"
+        android:title="더보기"/>
+
+</menu>
