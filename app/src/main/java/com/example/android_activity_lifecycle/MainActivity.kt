@@ -2,6 +2,7 @@ package com.example.android_activity_lifecycle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -20,5 +21,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_main) as NavHostFragment
         val navController = navHostFragment.findNavController()
         binding.navigationMain.setupWithNavController(navController)
+
     }
+
 }

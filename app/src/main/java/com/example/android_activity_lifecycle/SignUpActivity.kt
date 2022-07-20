@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import com.example.android_activity_lifecycle.databinding.ActivityLoginBinding
 import com.example.android_activity_lifecycle.databinding.ActivitySignUpBinding
 
@@ -12,6 +14,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivitySignUpBinding
     private lateinit var sharedPreferences : SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,16 +28,13 @@ class SignUpActivity : AppCompatActivity() {
             val edtPw = binding.edtSignupPassword.text.toString()
 
             if(edtId!!.length < 3) {
-                binding.btnSignupSuccess.isEnabled = false
+                Toast.makeText(this, "아이디(3글자이상)를 입력해주세요", Toast.LENGTH_SHORT).show()
 
             } else {
                 writeSharePreference("id", edtId)
                 writeSharePreference("pw", edtPw)
-                binding.btnSignupSuccess.isEnabled = true
-
                 var intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish()
             }
         }
     }
@@ -79,6 +79,6 @@ class SignUpActivity : AppCompatActivity() {
         val editor = sp.edit()
         editor.remove("id").apply()
         editor.remove("pw").apply()
-        Toast.makeText(this,"onDestory",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
     }
 }

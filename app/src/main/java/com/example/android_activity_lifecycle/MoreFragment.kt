@@ -1,5 +1,6 @@
 package com.example.android_activity_lifecycle
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.android_activity_lifecycle.databinding.FragmentMoreBinding
 class MoreFragment: Fragment() {
 
     lateinit var binding: FragmentMoreBinding
+    private lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
