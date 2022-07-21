@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpActivity"
+    android:id="@+id/signup_cl_main">
 
     <ImageView
         android:id="@+id/iv_signup_back"
@@ -59,7 +60,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/edittext_background"
         android:hint="3글자 이상의 아이디를 입력하세요"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@id/btn_signup_id"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +86,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/edittext_background"
         android:hint="비밀번호를 입력하세요"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@id/btn_signup_id"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,7 +2,9 @@ package com.example.android_activity_lifecycle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -18,10 +20,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_main) as NavHostFragment
-        val navController = navHostFragment.findNavController()
-        binding.navigationMain.setupWithNavController(navController)
+        supportFragmentManager.beginTransaction().add(R.id.fl_main_layout, HomeFragment()).commit()
 
+        val data = intent.getStringExtra("id")
+        val bundle = Bundle()
+        bundle.putString("id", data)
+        val moreFragment = MoreFragment()
+        moreFragment.arguments = bundle
+
+        binding.navigationMain.setOnNavigationItemSelectedListener {
+            replaceFragment(
+                when(it.itemId) {
+                    R.id.navigation_home -> HomeFragment()
+                    R.id.navigation_pay -> PayFragment()
+                    R.id.navigation_order -> OrderFragment()
+                    R.id.navigation_present -> PresentFragment()
+                    else -> MoreFragment()
+                }
+            )
+            true
+        }
+
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.fl_main_layout, fragment).commit()
     }
 
 }

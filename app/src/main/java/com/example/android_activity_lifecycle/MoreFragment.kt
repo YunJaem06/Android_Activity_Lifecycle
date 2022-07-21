@@ -2,6 +2,7 @@ package com.example.android_activity_lifecycle
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,10 @@ class MoreFragment: Fragment() {
     ): View? {
 
         binding = FragmentMoreBinding.inflate(inflater, container, false)
+
+        binding.tvMoreSignSetting.setOnClickListener {
+
+        }
 
         return binding.root
     }
