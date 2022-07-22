@@ -10,7 +10,7 @@ class LogoutActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityLogoutBinding
     private lateinit var sharedPreferences : SharedPreferences
-    var initCheck = false
+    var loginCheck = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +19,7 @@ class LogoutActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.clLogoutBtn.setOnClickListener {
-            initCheck = true
+            loginCheck = true
             Toast.makeText(this, "로그아웃 완료", Toast.LENGTH_SHORT).show()
         }
 
@@ -29,7 +29,7 @@ class LogoutActivity : AppCompatActivity() {
         super.onStop()
         Toast.makeText(this, "Logout onStop", Toast.LENGTH_SHORT).show()
 
-        if (initCheck) {
+        if (loginCheck) {
             val sp = getSharedPreferences("signup", MODE_PRIVATE)
             val editor = sp.edit()
             editor.putBoolean("AutoLogin", false)
