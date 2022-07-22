@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/iv_home_bell"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/bell_outline_interface_symbol"
@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/iv_home_barcode"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/barcode_lines"
             app:layout_constraintEnd_toStartOf="@id/iv_home_bell"
@@ -141,7 +141,7 @@
                 <ImageView
                     android:id="@+id/iv_home_ad_img"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="250dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_main_page_ad1" />
 

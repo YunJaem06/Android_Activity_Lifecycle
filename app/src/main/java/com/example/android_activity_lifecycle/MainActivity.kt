@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_order -> OrderFragment()
                     R.id.navigation_present -> PresentFragment()
                     else -> MoreFragment()
-
                 }
             )
             true
