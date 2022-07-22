@@ -32,6 +32,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
                         AutoLogin = true
                         var intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("userName", it.userName)
                         startActivity(intent)
                         finish()
                         return@run
@@ -42,6 +43,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    // 자동로그인 auto가 true인것을 확인하고 onStart가 나오면 바로 화면전환
     override fun onStart() {
         super.onStart()
         Toast.makeText(this,"Signup onStart",Toast.LENGTH_SHORT).show()
@@ -60,7 +62,19 @@ class SignUpActivity : AppCompatActivity() {
         Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show()
     }
 
+
+    // 그래서 텍스트를 초기화 하기위해 작성.
+    override fun onRestart() {
+        super.onRestart()
+        binding.edtSignupId.setText("")
+        binding.edtSignupPassword.setText("")
+
+        Toast.makeText(this,"Signup onRestart",Toast.LENGTH_SHORT).show()
+    }
+
     // 데이터를 임시로 저장이 필요한 경우 사용
+    // 한번로그인을 하면 자동로그인을 할수 있게 하기 위해서 사용하였음
+    // onPause가 되면 auto가 true인것을 확인하고 미리 작성
     override fun onPause() {
         super.onPause()
         val sp = getSharedPreferences("signup", MODE_PRIVATE)
@@ -75,27 +89,11 @@ class SignUpActivity : AppCompatActivity() {
         }
         editor.apply()
 
-        Toast.makeText(this,"onPause",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"Signup onPause",Toast.LENGTH_SHORT).show()
     }
 
-    // onStop 생명주기는 액티비틱 화면에 보여지지 않을때 호출
-    // 그래서 텍스트를 초기화 하기위해 작성.
     override fun onStop() {
         super.onStop()
-        binding.edtSignupId.setText("")
-        binding.edtSignupPassword.setText("")
-
         Toast.makeText(this,"Signup onStop",Toast.LENGTH_SHORT).show()
-    }
-
-    // 사용했던 자원들을 전부 정리.
-    override fun onDestroy() {
-        super.onDestroy()
-        val sp = getSharedPreferences("signup", MODE_PRIVATE)
-        val editor = sp.edit()
-        editor.remove("id").apply()
-        editor.remove("pw").apply()
-
-        Toast.makeText(this,"Signup onDestroy",Toast.LENGTH_SHORT).show()
     }
 }
