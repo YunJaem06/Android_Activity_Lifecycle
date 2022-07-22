@@ -44,6 +44,7 @@ class LogoutActivity : AppCompatActivity() {
         val editor = sp.edit()
         editor.remove("id").apply()
         editor.remove("pw").apply()
+        editor.remove("userName").apply()
 
         Toast.makeText(this,"Logout onDestroy",Toast.LENGTH_SHORT).show()
     }
