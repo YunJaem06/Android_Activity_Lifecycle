@@ -5,22 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.example.android_activity_lifecycle.databinding.FragmentHomeBinding
+import com.example.android_activity_lifecycle.databinding.FragmentOrderListBinding
 
-class HomeFragment: Fragment() {
+class OrderListFragment : Fragment() {
 
-    lateinit var binding: FragmentHomeBinding
+    lateinit var binding : FragmentOrderListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-        Glide.with(this).load(R.raw.gif_sea_animation).into(binding.ivHomeMainImg)
+        binding = FragmentOrderListBinding.inflate(inflater, container, false)
 
         return binding.root
     }

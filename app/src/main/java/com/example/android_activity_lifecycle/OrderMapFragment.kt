@@ -5,22 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.example.android_activity_lifecycle.databinding.FragmentHomeBinding
 
-class HomeFragment: Fragment() {
+import com.example.android_activity_lifecycle.databinding.FragmentOrderMapBinding
 
-    lateinit var binding: FragmentHomeBinding
+class OrderMapFragment : Fragment(){
+
+    lateinit var binding : FragmentOrderMapBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-        Glide.with(this).load(R.raw.gif_sea_animation).into(binding.ivHomeMainImg)
+        binding = FragmentOrderMapBinding.inflate(inflater, container, false)
 
         return binding.root
     }
