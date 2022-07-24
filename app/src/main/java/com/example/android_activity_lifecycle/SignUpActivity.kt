@@ -13,8 +13,8 @@ import com.example.android_activity_lifecycle.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivitySignUpBinding
-    private lateinit var sharedPreferences : SharedPreferences
+    private lateinit var binding: ActivitySignUpBinding
+    private lateinit var sharedPreferences: SharedPreferences
     var AutoLogin = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,22 +23,38 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
         Toast.makeText(this, "Signup onCreate", Toast.LENGTH_SHORT).show()
 
+        binding.cbSignupAll.setOnClickListener {
+            if (binding.cbSignupAll.isChecked) {
+                binding.cbSignup3.isChecked = true
+                binding.cbSignupInfo.isChecked = true
+                binding.cbSignupService.isChecked = true
+                binding.cbSignupMarketing.isChecked = true
+            }
+            if (!binding.cbSignupAll.isChecked) {
+                binding.cbSignup3.isChecked = false
+                binding.cbSignupInfo.isChecked = false
+                binding.cbSignupService.isChecked = false
+                binding.cbSignupMarketing.isChecked = false
+            }
+        }
         binding.btnSignupSuccess.setOnClickListener {
             val edtId = binding.edtSignupId.text.toString()
             val edtPw = binding.edtSignupPassword.text.toString()
             run {
                 UserInfoList.forEach {
-                    if (edtId == it.userID && edtPw == it.userPW ) {
-                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        AutoLogin = true
-                        var intent = Intent(this, MainActivity::class.java)
-                        intent.putExtra("userName", it.userName)
-                        startActivity(intent)
-                        finish()
-                        return@run
+                    if (edtId == it.userID && edtPw == it.userPW) {
+                        if (binding.cbSignup3.isChecked && binding.cbSignupInfo.isChecked && binding.cbSignupService.isChecked) {
+                            Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            AutoLogin = true
+                            var intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("userName", it.userName)
+                            startActivity(intent)
+                            finish()
+                            return@run
+                        }
                     }
                 }
-                Toast.makeText(this, "다시 입력해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "이메일이나 비밀번호, 동의 확인해주세요", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -46,9 +62,9 @@ class SignUpActivity : AppCompatActivity() {
     // 자동로그인 auto가 true인것을 확인하고 onStart가 나오면 바로 화면전환
     override fun onStart() {
         super.onStart()
-        Toast.makeText(this,"Signup onStart",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Signup onStart", Toast.LENGTH_SHORT).show()
         val sp = getSharedPreferences("signup", MODE_PRIVATE)
-        if(sp.getBoolean("AutoLogin", true)) {
+        if (sp.getBoolean("AutoLogin", true)) {
             var intent = Intent(this, MainActivity::class.java)
             intent.putExtra("id", sp.getString("id", "ErrorId"))
             startActivity(intent)
@@ -59,7 +75,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -69,7 +85,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.edtSignupId.setText("")
         binding.edtSignupPassword.setText("")
 
-        Toast.makeText(this,"Signup onRestart",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Signup onRestart", Toast.LENGTH_SHORT).show()
     }
 
     // 데이터를 임시로 저장이 필요한 경우 사용
@@ -89,11 +105,11 @@ class SignUpActivity : AppCompatActivity() {
         }
         editor.apply()
 
-        Toast.makeText(this,"Signup onPause",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Signup onPause", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {
         super.onStop()
-        Toast.makeText(this,"Signup onStop",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Signup onStop", Toast.LENGTH_SHORT).show()
     }
 }

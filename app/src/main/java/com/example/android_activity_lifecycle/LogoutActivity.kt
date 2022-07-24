@@ -1,5 +1,6 @@
 package com.example.android_activity_lifecycle
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
@@ -20,6 +21,9 @@ class LogoutActivity : AppCompatActivity() {
 
         binding.clLogoutBtn.setOnClickListener {
             loginCheck = true
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
             Toast.makeText(this, "로그아웃 완료", Toast.LENGTH_SHORT).show()
         }
 

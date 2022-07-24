@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val moreFragment = MoreFragment()
         moreFragment.arguments = bundle
 
-        binding.navigationMain.setOnNavigationItemSelectedListener {
+        binding.navigationMain.setOnItemSelectedListener {
             replaceFragment(
                 when(it.itemId) {
                     R.id.navigation_home -> HomeFragment()
